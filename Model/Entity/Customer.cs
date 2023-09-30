@@ -2,7 +2,7 @@
 
 namespace Boilerplate_GenericRepository_RavenDB.Model.Entity
 {
-    public class Customer : BaseEntity
+    public class Customer : AggregateRoot
     {
         public string CompanyName { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
@@ -12,5 +12,11 @@ namespace Boilerplate_GenericRepository_RavenDB.Model.Entity
         public string Country { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
+        public List<Contact> Contacts { get; set; } = new List<Contact>();
+
+        public void AddContact(Contact contact)
+        {
+            Contacts.Add(contact);
+        }
     }
 }

@@ -4,7 +4,7 @@ using Raven.Client.Documents;
 
 namespace Boilerplate_GenericRepository_RavenDB.DAL
 {
-    public class Repository<T> : IRepository<T> where T : BaseEntity
+    public class Repository<T> : IRepository<T> where T : AggregateRoot
     {
         private readonly IDocumentStore _documentStore;
 
