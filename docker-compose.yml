@@ -1,0 +1,16 @@
+﻿version: '3.8'
+services:
+  ravendb:
+    image: ravendb/ravendb:latest
+    container_name: my-ravendb
+    environment:
+      - RAVEN_Setup_Mode=None
+      - RAVEN_Docker_Port=8080 # Port to access RavenDB
+    ports:
+      - "8090:8080" # Expose the RavenDB port
+    volumes:
+      - ./data:/var/lib/ravendb/data # Persistent data storage
+
+networks:
+  default:
+    driver: bridge
